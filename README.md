@@ -13,3 +13,13 @@
 
 4. Multiple File
     - jika anda ingin membaca banyak file sekaligus gunakan tipe embed.FS untuk dapat membuka satu persatu.
+
+5. path Match
+    - seperti regex.
+
+6. hasil embed file
+    - file yang sudah diembed kedalam program ketika program tersebut dibuild file tersebut akan tersimpan dan terkunci didalam build nya. berarti tidak butuh lagi file secara external. 
+
+    - walaupun file nya dihapus atau diganti maka byte yang tersimpan kedalam variabel ketika diembed tidak akan terpengaruh ketika sudah dibuild.
+
+    - kelebihannya adalah kita tidak perlu lagi setting file kedalam servernya nanti ketika dideploy. kita cukup bawa satu file buildnya saja.

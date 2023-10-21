@@ -19,6 +19,9 @@ var Image []byte // karena gambar bertipe []byte
 //go:embed files/b.txt
 var files embed.FS
 
+//go:embed files/*.txt
+var path embed.FS
+
 func TestHello(t *testing.T) {
 	fmt.Println(Hello)
 }
@@ -47,5 +50,15 @@ func TestMultipleFiles(t *testing.T) {
 
 	fmt.Println(string(a))
 	fmt.Println(string(b))
+}
+
+func TestPathMatcher(t *testing.T) {
+	directories, _ := path.ReadDir("files")
+	for _, file := range directories {
+		if !file.IsDir() {
+			text, _ := path.ReadFile("files/" + file.Name())
+			fmt.Println(string(text))
+		}
+	}
 }
 
